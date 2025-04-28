@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levi's Jeans Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Screen 1: Initial Screen -->
+    <div id="screen1" class="screen firstscreen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <div class="subtitle subyou">Levi's × You</div>
+                <h1>Find the Levi's <br>that fit you!</h1>
+                <p class="description">The jeans of your dreams? Just 5 steps away.</p>
+                <input type="text" placeholder="Enter your name">
+                <div class="gender-toggle">
+                    <span class="gender-label">Male</span>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="gender-label">Female</span>
+                </div>
+                <button class="btn" onclick="showScreen(2)">Let's Do This!</button>
+            </div>
+            <div class="right-section" style="background-image: url('img/step1.jpg');">
+                <!-- Placeholder for person wearing jeans image -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 2: Rise Selection -->
+    <div id="screen2" class="screen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <h1>ALL RISE</h1>
+                <p class="description">How high do your jeans go when it feels just right?</p>
+            </div>
+            <div class="right-section">
+                <div class="right-sectioninnr">
+                    <div class="step-indicator"><strong>1</strong>/5</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 20%;"></div>
+                    </div>
+                    <div class="subtitle">Tap to choose your rise</div>
+                    <div class="card-container">
+                        <div class="card" onclick="showScreen(3, 'img/img.jpg')">
+                            <div class="cardimg">
+                                <img src="img/img.jpg" alt="High rise jeans">
+                            </div>
+                            <div class="card-light-label">High Rise Hero!</div>
+                        </div>
+                        
+                        <div class="card" onclick="showScreen(3, 'img/img-1.jpg')">
+                            <div class="cardimg">
+                                <img src="img/img-1.jpg" alt="Mid rise jeans">
+                            </div>
+                            <div class="card-light-label">Mid - rise mainstay</div>
+                        </div>
+                        
+                        <div class="card" onclick="showScreen(3, 'img/img-2.jpg')">
+                            <div class="cardimg">
+                                <img src="img/img-2.jpg" alt="Low rise jeans">
+                            </div>
+                            <div class="card-light-label">Low - rise lover</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 3: Fit Selection -->
+    <div id="screen3" class="screen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <h1>LET'S TALK FIT</h1>
+                <p class="description">From loose and laidback to slim and sharp- where do you land?</p>
+                    
+                <div style="text-align: left; margin-top: 30px;">
+                    <button class="btn" onclick="showScreen(4)">Next</button>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="right-sectioninnr">
+                    <div class="step-indicator"><strong>2</strong>/5</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%;"></div>
+                    </div>
+                    <div class="subtitle">Drag the slider to find your fit match</div>
+                    <img src="img/imgblock.jpg" class="fitimg" alt="Jeans fit example" style="height: 240px; display: block; margin: 0 auto;">
+                    
+                    <div class="slider-container">
+                        <div class="slider-track"></div>
+                        <input type="range" id="slider" min="0" max="5" step="0" value="2">
+                    </div>
+                    
+                    <div class="fit-options">
+                        <div class="fit-option">
+                            <div class="icon-container">
+                                <svg class="svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="24" height="24" fill="url(#pattern0_48_238)"/>
+                                    <defs>
+                                    <pattern id="pattern0_48_238" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_48_238" transform="scale(0.0138889)"/>
+                                    </pattern>
+                                    <image id="image0_48_238" width="72" height="72" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC7lBMVEUAAADDfTXGeSDIfirHgSbHbA3DbBHDbBLghxzMeh72sR/GaAbDZwrOex77kQPefAP9mAbkfgPHaATrhg/CaArNbATxmx7lixv1iQX7nQ3LagTFaAjUdAzmfgnFaAjzkhHKbg7ReRnDcRbkfQbRcAv0oyHphhLRcATAaQ76qBj4oBX0jQrzjAv2oRoTFBX/tiH/zzYXFxcaGhv1pRTyohMuLi0xMjDYfgYcHR38rBb/1DQoKSglJiX9sBfsnBE0NTQrKyr/uScjJCMfICDnlAzhjgz/+Hj/zDb/shz/+p//yzn+rhf/93D/wjP6qRb4pxXvnxH//cv/+Wn/vjD+tBvkkQzdhgn/+7n/2DQhIiLolw/MbQP//dP/0Tb/3TD//MX//L//uywQERPVeAX/+qj/+Yz4qxP/+qT/+ZX/+INRTTfbggfTdQT/+7T/+ZHrmRD2pg7fiQriign//df/+6z/+Ij/+H7/xzT/rQmPUwX/+7D/+Zn/8m5TVVNDREL7vzHnohTynQrQcQP//t3gmQ7/uwyKTwfqiwRuOAP//uNmaGZMTUr/xzj6rBIfGxHvmAjvjwT/8JL/8Hp4eng8PTr/wBg3LBL/pgeNkIz/7of/zBntpBQoIRP/xQ6WXA3/tQl7QgX/9IP/6HxwcnD/6mro0ln90S72uSz/1Bb/6XRrbWrq4F78yj392Cz/3B3/sBfAhhGCSQbYegR0PAT/4Gz/+WD8yi3Ekx3vqxtGNxO2exKnaxFUPxHNixD/ngb/42T07mLOoi/7xCq3lB5pURPclAj//uyEhoNeYF7/11v/5UvrvzxYVDj3vynvsimwgR3UmBt9WxKdYxC5vbmqramUl5TsylTjuTrXrDX3zyngnyPkqSGSeRq0t7OmqaSfop/QzFHHwk6xrUtlYz3/4jf7tiRdSR2KYBBycEHxxkDzxSbkwiXQrCGidBxlMAP/7FycmUmRj0OEgkL/0T7jtR+udBeVkUuAfEbIfg1eKgNi307rAAAALnRSTlMABhgRCpRjVlMt/t6sI/7+/f33oJ/5lWPz8fDHocC7t4JKNuG0qID4cuTY1s7Dhsc/fwAACalJREFUWMO80D1Lw0AYwHHTOqRCpFC4mCk4WPAN/AJ+gCIohUIcoumQkC7NkhRK4hYydLxCKDkIoUUkDnYSx7oJ5nN0d/AL+Fw4asGXtir+x7vjxz3P2h/Frf1jHPRLoljiRYR2IIREvlT8kccJPDrc3Wg0wrxGY2P3EInCqlZxG+2dHYchSdNxXpqSMDw+3UN8cRVGlKWTICbpeJq9XA07nWH/OpuOUxIHJ5IsFpYdipelbhCn46yva3bvKa/n193o5TKNg64k8+vLOALKmWnfVf3eXL7v20qU5VSltMR3DgZJTKZRU1VV27b9WbatQpqXkTgZ7Ivcgu1UJXDubpU6jVqsnIEjrd7E5yBJ1W+XXqiUYays1oQ0TaMWK1fgiN44jyToliuFBQ65dtptRVGYNStH4LwNRTcgycL3zkh3HMd15zCIKWC4ruPoDr6gUuGL/VTKg4SMzJppmrrOsLkYopsmPMGvdLpP98RVN6mDPc+r1RgGGuWAeDcgz8M4OkoGm1XuE4jfmiThPcbYslqt1kxjMQQMuLQseDZ6SCZb4kdHOIAFPUdRNOwYhgUBBtpcHkXgwjCMzhAe3ofdyX7pw2BvXJM9SBthGMex1LYWqg0uDgq2Or/lXj15IYc57rUOxUIpONyS4QZBh+KiOCQhgZSDBMwRjygkiyYdYio4pEP8DFVJAoEi1YDgVxKIFltQW9qOfe4jMc0PkuHe//3yvP+HtMPFfi4tLQUXFxfHp6bAZuhqvDMccDQOkSBEc+/nW9sb/y3POrZmPifj8XgwGByeBsbHQQc+A9MAaGdBAKLJVzNbHY8aNtYFA+WSyVgs7nA4hnWmdZ+JqdAPRiASj8WSydyL+daue41Nz7zObW9vx2IOYERnuBHjsUMjFoNw7uMM9N0w0NbYt0Lhg0YikUin3+qM/IfxLJ2GgB4sFAqP9ZHqG1IuKhNV8vny5e116TwBunrSiWLp95/Lcj5fS1bWn9a31NTZ+pdigjFmkA6DicirE5fX5+lPJoniTXnCZqWkLkMIDo0qdYt70tO6GUEMgxjV6YvOActZv8oTwqnlm1Lx/LxYus0PiEQYcPmzvmg0upx1ujhJeyP1UulpuavaogQqCDzOhbODk5OTrxonpws+lRJWdfknXDYOW/3RhbPTA+D09OzsMLNs00T7Q7Llru5mWfF8mUWIh3EymQWTQyDKIyJwAmGQGs1kMnMGMJIPZsIIhVZHR+XOptrO5MCgu4IQ63Rmsz7fsobPwAVtSBJCxO+s4ff7XS5VZUG07/UOybW9tfTIgTfhHwyyqi4AcnpUC9usUO1GSELYyhoMDLAsb+UEkULrkTWvNyD3PK8uv00J9IehbiJYNXhAi4qUYsRIqV87s1AHFUWB46zGGXgoQ1Bq0zsYUCwPTdEDi+LpD3s34BIMgzGh2hsCfDiRYCwdH12lJEw4ntcHAlh9KCqi/T1v2KNYuk1RN4j6wu4LhBlMBQ5GMmB5gVAm8n1l5VjClNMlNgOQcZTOrhui5urSQDQZdq9GCIbL8WYXkOVFQqTdI7v9KoSoyJoO45sXRJLa3HP3g8hcW1Nnm+yZ7HN7dzElAg8KA8hikZndsdvtMBKhAphqsBwRmAsYaNIjW3rrRWNh91pEJJSrNsGCh1JtIABaEut/BDyUhFb33H0gauu9XxP968R+QtKKAziAo/mH1DEIvRiM2GU7zf4Np0tB98SYmA/URykOUvCiYHqRTpYM8aB28xTiSS9GqaAt61DtJqvmpVa7dlhsnbbDbvv+3ntqk7Xavpeo3/PT9/fnKc+1peA2Kk2YJ7lVQszYlgV//usGgTYOcxPmFzib3NjMwiTKkkLBpbUBKAtpLz+JS7BzCFn4Bf/6YYmDPn1+NjHzaqIbdH22uwcny0ICfrFrsbXVrEG2vbKTfzbDbu0M+beT/vzhp435NySlq885vxljM2Y0fv7yhf8dJiYzAIrVuvfIWCBGrS4ZXJC2dnM4xTh7OIr+3PuvjdI8n9LV4e4EjtOC2cyNbb1dkV0agqtUrNbdfkmYAZR1XV6SUh938+u53Hp+92PzqqSf70Zfanw/fv8OQ+zYztuVbdmly7C0SjHhse4t8uRhDItk0JgWy2WZ7OKk2WyeXBwdlEp6vZ5nEFAfMLa11TxZ2d4+Ki+aNGRm7tATKQ8Ny2sxz3TQ4DItOp2JROIAaTSs4z797/H5xhuNgw8kuMq5aHIZgtOR2EN196YdGg0wFM1Vctrt8XjcarWOIz6f7waD4G8YwgV2u91p0riySzQVrY0Ke29syZA7QippTE5I9nKiT/UzzjPlchwMHFLI6A6FlYIuJFXVYjcqJVqtI0igBmIlznlhi/ThVoj2xLRPJP03f3mYcRungzpOyhz/LJwnMq+7Vp95HS/vVa/3M3D4QhQTkA/3IIE4qY166ClMjpXaqevizgUoPlb+ZyZx3qpff6vwTnaK9li0SYXoxgekOkAqObKclDmrptOpnfOynVg95eikVUynC+0M7ziwQkxAJb35kf0IlShIOk6q7KeK9XSxsIPjVE4g5aPzvR/L9XS92DnlHZ1jykgKYc9uRKIKhyxkcrpup0K1WkzjhalCp9XqFFLsL9Xqt3bXCU7REQsKPeWJfiXGHeElUJn28XIqBayeJqkDSaVSheYXOxjNLHEwsehAIUSqDmujWCYizaKUyV45Oy4sIymSZZLO4WnFaUId3qEs2rAKe/9bREpvIGShIM3pDFwpe+W0+aMDjKTQOd5vV+wmUmeTczyWUMCrGBqAcMMlIXkgOeZ0ttlZDSxnptI+PdtHzk6/VOJOKKhjs805WIfRJuX8bTY4OYaTHDqbbZOzcKriCHtyUAZtbLqeE1aTiQ1GMKaChNnRUyjFUbD6mQWzSZieoxKL/vgIofSyUoQm0wPFWv1AsenYOjScqBYLJLzloUbhDUBye4w8pQPWjw4KYaaNEcrCwHn04NanUAU6EQmlQMEC1g0UTIqt477DQScl1ikUZUuBggWMi4NVCENZoiGsjwLO7RkaU+MUMFE35YlwVj9QaMwKdUK1pFos/Pt3LiKp3MuVIpSRpqGR0ECMEQ+YKLbLK5eIcPHfM6xUewOgYsTyRBAIiIcoZFaB5IjiseAuRkBKPRohFEMsN8XH7bbEogzLjEqGUOc+EUpAJWEBi8bYRIFACXvBCO/JCAglVcphhQM1LZ9aIJz0jsiVUiF7xT0lXCkalohH5SMjXj5ARpWSYdEAcz9Q+Fj6VKxUIErxU+ljIQiB4J+V3uqLEO71feQ/NJ4Q3OkI7tbu1eQX0s8/VkGv1ocAAAAASUVORK5CYII="/>
+                                    </defs>
+                                </svg>                                    
+                            </div>
+                            <div>Loose & Baggy</div>
+                        </div>
+                        <div class="fit-option">
+                            <div class="icon-container">
+                                <svg class="svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="24" height="24" fill="url(#pattern0_48_240)"/>
+                                    <defs>
+                                    <pattern id="pattern0_48_240" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_48_240" transform="scale(0.0138889)"/>
+                                    </pattern>
+                                    <image id="image0_48_240" width="72" height="72" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC+lBMVEUAAAB9W1CQX0WfZkOea0qQsNH5+Ph7VDyzxt2YYUCJVzqgblmWXTqcY0GhbU1SOSuYtdGKVTWTZEZ/VUChZUF/WUK2nZDn3tiXXjuSWzqRWz3h6vSaak6eudWdblXSoH2nfGrp8PfsUEe/gFaaYT/X4eubt9SYtdJ8TjKXXzzj7PZudICXZUaBZVSjcVR9UjuWs9HLlG3W3uZ6WkyEYVKMZ1jJnXyDUTOaYTyKpsTi6/aqbkZ7SizO1+G4t7uOk5uWnqdqPyWbuNWTsM+/yNGEUzU6PUFxSjQ/NjKdak6VZEh7nL2KXD3g6fKpdle6g17m7/iepa3MkmiLrc3d5u7i6vOba0vn7/jf5u+sfmDk7ffL0tmdhHmjaEJgg6elaUNkh6pniayaYDxwkLJihamnakN4lbagZD9sjK+fZUGBnbyhZkGpa0WYYD6cssuKVjquwNadY0COpsNfhKpeg6lqPiS+zeCaYT/H1OeNpcGqbUWqwtylaEKVXj2SWjnf6fOeYj3Az+LN1uCAm7qtb0ahZT/I1ujI0tzCy9W4wctxRCmzc0iJVDRMKha+x9GYXzuMVzd8Sy2tw9ypsr1uaXDBfU11RipuQSdRLhni6/Xb5e+svtN1k7Rpi65jhamLk5x4b3N/TjBeNyDO2OK7xc+Xrcdri61naXSPWDhnPCK1xtqwucOlrrmyi3NybHFQVmOwcUeOWTtjOSFGJxcfEQq5yd6nutGbsMm1vsiaoqyOlp9pZm9NMB/Q2ePFz9iIosB5l7dcfqF8hI18c3Wuh3BQVVxZNB/X4evU3efE0uWvwdeSqsWiq7VeeZiEjJWBiJFhZ29dY2tKTlVCR0y5d0mIXkapakFKQUE2ODvC0eWjt8+ftM19mrpJVWSEUDAmHhtXMBmgs8tykLCcpK6Snq2Tm6Vsg52HkZxjfZtvdn5qanGogmpWXGKgdFqZaUw5LShAIhGetc+htc2bp7RfdYuQh4Z2foaJcGRpYF16Y1q7e1FJTFBoU0qOYkny02S0AAAAXXRSTlMAH8PX13cCk/7X1kj+19J7L/i/ifVqFAz679e+fGhjUC8WBvjs6Ojm5uPFsbGKf3dzbGFcUTkg/fr08/Pz6+vr6url397Y1tbMxb28rqWQj46OiIF2c3BMR0I8Nhd/JW1nAAAFMUlEQVRYw+3Xd1DTUBzAcVy4wL333nvvvffeaaA01NpWLRZrKw3FFhGLrQNFqYjSglUQQUBREAUBBZQt4N57733nL3lpRU9Phf6Bd35J87LuwyMJ3GFloVpY/e9/Jao+3Wd0r2MJaIr6Y1inZhaAJmAy7qZKla2LDZVWYOxt69vNqWsRyMdnUBOLQM4+PjWLDXEpyNm5vHWxIZyBSsyMFCUPItjrLQX57HPeZ4GbLQBoX0mDDh06ZBFovUUgd4ACAgIAsq7bvG4RuLp9mjZtWgfNKDn5evkFsyY37NBw2tzmf2W1mN9o0uiBLVtORfdoe/KHIa19XV137NgxoMPs5n8B9RoecP06qVJVoSHn2Dcep8GhoB2uvg3n/fmkqm7YsGG7F+5SloYOvdfoz5z2pabkCp1u3cP6LyEMQQH5CUeDPdd5rAENLN8zg0EqEnQtZ2+C/9GQYE9N3Jozvq6+a0YtLBoUeS0n60FCuv+do2dBW6f3uDXd+g+hiIiIwlDktYLszAdvExIyMjLS0+9lZHWsRlfnt9BzgNDNdpexkyMjI8eNKch+nJWZmZn1OCmn4HX/tm3btBkxcuLMcr+sW7fGjRt3zI94vt2LwE1QwcOhw/yP0flTpUWtdLtwIaXCi9Xft3kzLKgKKN3t/AgztP2ZP/XMTOn1hhtRbhdSVq1duX+VqbVrYWFWMNClpLitjFp+9xmCuAB9CgFHr9cfp9Kv8YgOTN0PRaXqVjK5ucHCZDoWFbV/f6ruhmP+VcIFQbFJZw3r4uI8UHFxmi3SSxcvHj58+NIRnW65qVQ0oHTLdTodXHHxZaAyuxB0K9qgWcek0XiGKNPSAgMDj6RJl5q7tPSHjkBwkdOSpD0IIrSxSfBiGwwGDZXB4Bn8ynHJCUi6RCmVSp3Qx8nJCT6FksICnbh8cA+6R5g2NvvOluDoaE+66OjgLbdvnrx8WalUntwJqyVMSvgyZ96Ei65sMkM56fBKb0GFhJw9ei9oJ+ToeDOIHk46/jx0fKcJwm0Czj95lJiYeACVmPjo3d3FDosdHByC7Bz+IBNEGLep1erc3Nyt5p7et/fz8wtabM8KgjWdHxqC0MjsoDMHGUhgXM/HmPh8PkbIZE/v29nZ29v72bHsf5Xft00GchdspCCcDiweTyQ6f46zyw4sVjwMv+3gJtwESeSQUCKRCGEtoiEWh8PZxYpnsTi7qC16jQ5yzO1CH4BcELSNJw9fxiTHVKq8L+fELIgTD9BvoyCMmRFiGEmgzn1yTiwWr1jBYcWLV4ghem+FGC3mARa6H6BwUoLhmIRcFi6Xn4/Zi4p56B26+xS0e3eoNxQauhuidmK8vWEVE+Mdeuoz/IowEBm+LFzIg4cmgVsl4vF4XLZWa2NjQ5Kk0Wik1hs3klqFQsHWslEK97y8PBe20cuLdL+KIC5A9IPn8fgYLiBw2Bbx+BA8SmoHXDhDEJhITsqFQupbwSsiwOE0xufCo9nzbUY8U3wIHKFQArAIniJsSUT0AIuIT+DUYSETOss3Q0afMLU6TCWTyVRh6jAZjsOsuPQPiBFwBFIJ+CKYJQbhAgFcB4WpVDLa5W0y/Rkhx9Zna1uVQdk2qETVoGJFW9syP2ZrW5Hu25lWWna/dn0pqAaXqFezknZj+VJFqqaXtn3n6oRLFasaCrxezQZcsoj/i3QluYWgrk26NOpdNKh3oy5NalfHaQizqW1VrHpWxzALQThAnWrVql9MqFf9WrXGWzWrXLnyouJBdYBoZvW/f7EWFnK+AiX9q5/TbsbHAAAAAElFTkSuQmCC"/>
+                                    </defs>
+                                </svg>                                    
+                            </div>
+                            <div>Comfy & Relaxed</div>
+                        </div>
+                        <div class="fit-option">
+                            <div class="icon-container">
+                                <svg class="svg-icon"  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="24" height="24" fill="url(#pattern0_48_243)"/>
+                                    <defs>
+                                    <pattern id="pattern0_48_243" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_48_243" transform="scale(0.0138889)"/>
+                                    </pattern>
+                                    <image id="image0_48_243" width="72" height="72" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+                                    </defs>
+                                </svg>                                    
+                            </div>
+                            <div>Straight & Easy</div>
+                        </div>
+                        <div class="fit-option">
+                            <div class="icon-container">
+                                <svg class="svg-icon"  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="24" height="24" fill="url(#pattern0_48_246)"/>
+                                    <defs>
+                                    <pattern id="pattern0_48_246" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_48_246" transform="scale(0.0138889)"/>
+                                    </pattern>
+                                    <image id="image0_48_246" width="72" height="72" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAADAFBMVEUAAAD00tnyfHTzkJnzWlnzY1/yUk7wRkTvHhH/tBfwLiHxPDPvIhjzPCLqGALvMgfsGgjxMirwQDz/pyTsHwrwLwzwNSb0Tz3wLg7wOiv2jGb3KBHxNhnuJx70NSrxPzf/20P2UhXvOBDwNBXzVRz7Qz3yeyj6uVP2clj3rV/3PA73Oxn+STL+RDL7Qj7vOzPtHx7xVgv3Ixj1Oxf53L78sx36Nyz1bEX5mQr62p/zfRDwaBL3kRb8OTD6piz2Xy/6zZP5bEv3g2j65bD7023/1RL7zWr6wnT428HzSCP7pyv/nEf/vUj/nET/1Ez/nkj/oUf/wEr/cUbsIQD+/uT9/d//lz3uMQH/Yz//xUv/eEj/uUj/n0T/azX8/Nv8+9f/2FP/sEb+uAn/Pgn/pUX/ZEX/XDz/Uxn/QRH1MAP8+8H/tUb/YzD+NwP5NgPyOwD8+8n/yE7/qEL/nUD/by3/RQn0KQD/3lb/cD//VSr/YCn9+Jf/4lv/fkb/kzn/TRDwZgD8/NL9+qX/52L/aEL/bD//mz3/dTT/WSL/UCL7PwX6SwHxNgDsKgD8+rz9+JD/7Gz/zkn/dz3/XTb/gQf9LgT3LQLvJgH7+s/8+qz+9on+9Xz/9XH/8mf/zFH/rET/hUH/ZTf/Ujf/aCv/dh3/Rhf/6RH4lQLvWAD8+rX8+q//0Dz/bzj/jDf/yTT/Vy//Tyr/uiX/Shn/wRj/bRf/4A7/rQz/xwv9owT3igL4PALtPAD9+Z/+84T/8Hf/6FP/uUP/tDT/fTD/aSH/kwr+aQb8rAT/7GH/mEb/50L/sz//pD//pjP/SDD/wC3/mij/0CT/jSH/YCD/2A//0QzxcAHwUADtRQDwIQD/8Vz/0lL/8E7/jkb/1UP/vzr/hzf/5i3/SiP/2yD9Oh//5x3/zBj/iAf+Wwb5ngP2ggHzgQH/01f/xkD/2zH/ryb/hxz9NRHzdgH/jy3/xyX+RyL/mRb/nQn0RQD57sX/3Uv/7zz/phf/3Vr7egH8UQH5UhTzNtFGAAAAS3RSTlMABBIJKRw0RN7+pWnGrf349IZX/u/slFHgfyD+vrSbYv3g2dC/jnxUPij9+PDienVO9vTv3M3LZfXv2tPKvpyThUQ5/Obf1Latk4Cun17UAAAJA0lEQVRYw6zVTUsicRwH8GZ8SNRIpazoCQphaXuAFtpTr6AGZyeYZs05iDrO4GSgq8wI1qUxlS6baEe18OZSdKxbJyG6dOoQhPgGOvQC9jfj0y5kE+nvpIgfvr/v/P86oDraGf1AX0ZrMNg0/YB0htdvVl0fINRciy9M92E9xFinU5k5G9KzZH8plcTM6ATaKzSRz1LZS++wsdeiVjiRophL9niqx6JmuTTlpxiRPZ4fRHqDapTf72cuyqHxnio3cTXG35CuR2d7kCaURL1LmqGQKBAyRGVFkGyfvmvjXj6x4fIfEodwCtiQYfBzDmKNXdEJH54gCEIqXaSjnFn7sS8i/y9mGgmlhQSuSJKUFa8yp0bNhzb50rmuKyaT0RLzxmXI53Q1IrEhy4dqWl5uvxwcmZycXGDTtFDEcdxXJQihwl+WvTEzqu7o1hztJe2nZYZhKEkgnnB5ioJQocVXb8gypv6sHfeOzuPiriiCcLmIhFOBsBOA4jV299GOqDW9vMi0VzNth+InLnmqOO50wxSlCn2eZnfVd5tdlJhWk+gUF/2lQE+4E8btjpAnNH2eYnfzBpUToF+iDpf0rapHuUCFkB2Z2djAsEjyGaAHdpcbGXx/McfZITOkab6Z2c48VOAUJjaaDpZM7tP8+UM5x1neh9A1hloc61Qd5QXouqoEwuRASfKIjz8c5PIqkHaJOpvRtKoeDgVKAtFZDCCSvFWgmMpq+sWzdV37zh9nUrRAFAGBwWDA2X/m4ykZ0qt0va5tp5s7jsYlKVFtOG43JALoTwNSeWraoc7nY8N7B3GJeJIZp1ueSANKBQ5yp2bd+2WD0zqyKzfXB3wzkBv3wdyBpEDR/Om0Rlkf6UohJlvrnt1cB3jhCYM8wIRhQGpBW0YF+t698rFVR6vrvUyAP6liGMQJFwoej6cQvksCJAa8+a0ZJYt1Gu129c11a+t+AFQqypBPVoLBIEhJ8hmgF0iEKEd21dbtV3Xy/l+I3icxzFcAZQcm6AlHyOfsRfol96iUrVurQ1dvjd5Qv7c3oXmAjgByF2Rmc/PH5k6wgJHFUlas52IWK4qg1q+vBv2bgeyPYnYKbSw5B9DtPhkJB4PAbP78DZLHWS1S8E8iS2ajefWyvGV6O9BfNuvtJc0wjgM4BTvUNneQtlo3Y7sZ7WKD/RmFTF6YmQlKsYpWoXnIQwuypaYytVIyOunbRZQd5L2Saeo7EUwTuwpZRgzyotCIWkQt9nse66bX58qrD9/f7/09v0eH+vvHe8XfVT1yA4LEyOHyOUWovn9oqPGLO/nnqLb26GSv21LyHahx+mX9xsry4k0rQhvxkAA5HAmCPtU3DWHJ7U4mkydHDkupES9/yBshZ/vePb9TVnYXWjSg3v02PBMKQV2cWxBIydW99nEHj/Gg4EXWY6J2++fqXlc+qjb75W2eXRQICrMBxMcQlAZ/lUbd7tVVo69lXGEhnpaojAdQZLZJaKzr9ssHDGqhd1gaauCCgyGuoLMVtnbj3OjKigqcdgwxBgBmGaAoGbHb+4Rqg0HtEdo/N4txo6+hhk5pM2xtgFQqo2++vaVL4STuM67vyzcA5ShSr9fDU+ERLi3NwrcHBwUScSQo0kxrr3dp7uuKiqZvIOZmeluFoChFy/DR6+2/W8XgSET4TIMEkTaGvRGZLFIgfeB0KbYJxq6EBYSgHEXRHg84APXOdIKTAUWpBAgkgRhd3OPjdIFsQ5Bjm3jy4Tb07DHPfHaVi5I0TXtQIK9ULOBLpkFB52AaZQrFpYkUhnzXEIsBvUCQ6So6Rm1t0RDJuxEXcCWSjFKpRecSSw2heCKRSqXTGOruQBCzR5YiNEZCnyLHCRghFAgcnU6n1R4cZJAUD2OJmseQE0pjfjUCmmQCqFBIp1OJcDwETkaJGKtVp7tEku0wGw4n2Kn01oAcQQQLms2YI4LgnSFo/9dpip0PZw/5toxIi5hgEKhLkYhjwxKbXWjDkIJglbhsD5yE0+zPje0DxMaQjZNR6mLW4GQgMBm06rRIOgQpzyYRBC1isZiTDW804eR1jPxDiS7ya5vZRRtHpAUn4NJoXIGgNaZVnu8sLmc319gUQDgQ632pvea08Mz+6A20vLjDUcask+BMDP7UuEBaX38F0uZansSBLCUrg2VWbbGYexD096ICQ+frU0HXD83EwsLEIEhTsWuo4jQnN5nMANWUlVq1/yuxm5e24TAO4Nq9oUNkbMxZxmZHaS2eZIqvqHPvu07pLYEcc8q9lyS3HUwuO6Rtcs1LBWFITENaepFKb0LahJJLKRHaQg9FcFtBtudXZezSar9/wIeH3+8J+T3PdBxKci7/g07EPJ9gOZLkMmwiL54Ufl9BR8ffL5343tc+f9x7z+Nx62fHPL44GvtxfrA/U5DSfI7VKIrqSWmpWpjZPzgHKHvRdON7fYeAB8/ilkX3oMPTdqnnJDOUwDACRWZYPi0VSu2D80OAFNqKP3k42neimrQsp6lkEVQrVcUUOCSDQxiKy+RSYrXUPu1BpmNNPuo/Adz5bLluBSACIE9KwzlzAo5BkMTy1xBx1KDdyaeBQe/1sOuqJoLO2p6UymkchWO7EAwXyGQijaCzQ6LYUt3x/s72VGBkNuSqlUYRoLon8nBhDDg7O7u7OENmEFRHkEI74QFPpOD4xFRw01HpZpEwzuolkU+SFIMckDAEiV4NICPbUUPbAweRiblQCKCKApBdkxCEg3MNJXmxW6+XjWKTVsOzS28GSS/mvv0BqJk1yna9m2e5fxAucGzK8327TJgdWp0PhQHqn8D0awS1zKJh676X0EjmCsJwSsuJNV+3CaWJoM27N4xHL185CFKIsq77UpKjMHTWvSPiu7JsEw2zVaHDUzdPkfcn5ulOS2mAJPtp6Efs+vZZDzlZKGgtcqs1SWBpDUpqZJFU4zXUSBgmUFpVlstEUTFXI7GRWyYYWYWSoAd0uZvToLVRQaKsg7O8HokNs0KIRdaXrySJhY8EF6iUrxtjixvRobdIwejG4uMxw67lc78gb2feL36JBqGY4TMai259/PBuZWVhYeHTVjQWGKj8BTiG2ucQNbRcAAAAAElFTkSuQmCC"/>
+                                    </defs>
+                                </svg>                                    
+                            </div>
+                            <div>Fitted & Slim</div>
+                        </div>
+                        <div class="fit-option">
+                            <div class="icon-container">
+                                <svg class="svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="24" height="24" fill="url(#pattern0_48_250)"/>
+                                    <defs>
+                                    <pattern id="pattern0_48_250" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_48_250" transform="scale(0.0138889)"/>
+                                    </pattern>
+                                    <image id="image0_48_250" width="72" height="72" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC/VBMVEUAAADR1NygprWMl6zK4feFkKNwgJ5yfJCFnMBimdWGlLOVqsmnvuJGS3lGUIFoodlZZoxWZotue49gaIFPXoJda416h51dYnZKUnJSWXNhan+r1PdKWYZKWIBTYY5pcoVdaYVtd4xpdItVWaFEX4FLW4ddeM3T3+pacMBrcoOfvttEW5WvxNBjeKRPYKJYX3hqq/hVbrpqfKBomM9zh8CUtNValNV2qd+UutdmieJgmdFiYG5rmclVVmyUy/dFPkaouMBhjrZ8pMRthMRUZJRDRl2ev91bYXNDQE2SvuJuicK7wMVbkMwuMVJQTmBPXaWTrMHV1dS0zOCop6U/P0iFnLF1mriwzOJskbAuLD1+pck7PIExN309Xas2R5dMf8I4RIYzO4c8PoU7WKY5T501Q5E5S480QI40PYpHcbo7VJdKerZBa6o5UqFSh8g8WZszOoM3P388O3w5Pno8PHRzsvRppugyM3g1Mmk5U5I3Sos5RYs/SIJmouRind5Yj9ZUic1DZqs7R5tOgMY/Z6Q9S6A2TZg7Rntwru2oyeBLesA9RpdHc7dEbrY/Y68+UaUyNYI+QH5Ifbw/SK01M3wtLGV5uPhdldxOfL5CaLJAULA/Rag+XqA/PJU1OnYuMHEsKls3M1lMd8VDa7Q+W6A4NIU0RIQ3RoAoNmgsKU1Kdr5EX7JAV6w/YKRKSptDZpRQZY41OI5MVYBMSmxVjNBHUbFBcrBde6Y8QZ82XJU5QZU7T5Q+SI1OW4tGVIlEP2xsqe5vncZITqdLVKA5U4ZYV4U4TIFBOG42Pmo/OWEzMEtJabpJWrl5l7VCQaE9UZ9Ub5k6Y5lMSo9NSYE/RnRIQlyZu9WFr9BUf89RX8Zfi7lbY7NuiqtEQYsxUImDv/dZkfJnluBVXK40Wow/O4vR4upUctqPuNdijNGFp8avsLeem6dncYkuRnU5MnJhnvO+2+15r+pgf+JHg9tcg8Ztk79ygJSHxv74+Pnf6OxTatJjbsNffLmIi5eOi4bpISDkAAAAW3RSTlMABw4eEClRNDDnQCMY/vLYqZlE0cGIFfzz6bsk7uK1oHJnWf391L+4rH8+/v3d29nW0LiXZFf++tTJwJF0/vfw7+rn3cPCs6+km3/9+/bit5F8blxY7t7d0MumL+StOQAACItJREFUWMOV13VUk1EUAHA2KQMV7Mbu7u7ujo2NBSxkMmCwwQgZDhBEQDYR5tgAgYGChCggilIiIihgItjd3R7v24BhHL/P+4/6zvH33fveffeBwW9h2E0brVoZGg4ZP8SQQCAYor+j6Ib+hH+1hDA1JRr8MwzHjhiFYvLkyQPaeI0eNGiQeft5AweOWTlo0IDJo1cOgBg9esSIET36j/s31Gr087e3Xt568+XatbJ3MRUUhVJg9vTT56eiuDjvmAJZYH5KirI2VHAmugQDIgwC6NatNw8A2nculxYX96Lkyaf7T0vl8qGcFLks7t49kqPgzJno1qYG/44lCTFvHzx48OVaWSTnYKhaJBRpip487aRWAVSrVsnodJJAcOZsdP9WGNC40NyCgpSUXPGNZ4fLQhPVcrlGKBDI8/JUx8/VZnzPU6tFItHZs2d7EjGgFn1ramru5Csrn/wwk8hUsjiZnzQtTVlVlSY5RP/wpFOi+sWZM3l5eeYEDMho7puvNTUptblF0wVkckgIQMFZWfmVlRJJWkjRswwtdPbSpakGmNDXmjt9K2u5NLNQGjstLS3OL1KhyOxbEBmZlVVZVa1OhMrwQC3nXivLL6hyTz6ZQUaQMs49Miyz7M6dssywrJSiKr/oRHU0BDY0/E5+YKWgzjU93YHGYuVI0sSRYZGZffMzM8MU0qJ0s4SSxMTE0tL5RhiQ8YiCwNxcV9cTJ076+jKlEkkOQGGZffuGgRRWUJSezuUWPy8paW2CAXVI3rVvX5J36okTvr4VFcHBUoktQNDQ5YowReShgqKT8ImTJ806rcXqo+u3bz/6duxCqj2PyQQoX2IbplCkFFWWl5cDZLU/FZz09HRMaPXS97cfvft2zNuKwaTYBEqlUJpCUV5Vq1QqyxXBDMaBoSeGnjiZ3q4ZNjQRpBjOuYMMCpvvQJI5SLOUVRn0e3HKrHIpk2HF4DHs3aznYXZ2c3/nly+vxpw7ePAQU0yG+6Bh8fMu5QmFcUplVpa0glfBZNqS3HtiQ857T93WQcFSsUwUnViScelstFzIyskJ1IaNmO7o3pOABwqvhwJZfKG8tHRmabRGQ2bnSCSBrHv36DAAQrEh0+bOzi5eV2GLDh2SBtKEInnp5nWLlsvlqniKVBIo5pMg8EF7957yupoUiyoLZJNF6pnrDIiLEgHiBlcwba1JJJSSe1vM2w+Qc/jVpAgr6MUctkwVvQj+i8VMtSaey2AgyBFJeCDnm87hPpzdhwBi0WSqS71hlTg/URN/IGL3geNiEkgkEi5or3+4T5AuIb5QtEJ7qQaXauqSYyOsuLZiOgkX1LINOrWYCAaPksPik4WihdqG6bNcU7cjKQgga4Dojjghr5gIHpPCYocIVRmDdYmu0NTZBXC8oTZrSAgfBMdPjeD5UmxoITJhZwtYRJukyT4aEBCUfNwNbTcJH+SBMqLY2NDIwhcjW+reu6nV2bsCAnZ526Nzgz4yN8CIZm38ERQLECpN1LX+Tlk+v7iVChDURgcJF+Tv4UWNZfja2LBo5Lxe9SX06Zy9y4cKEFdMcnQU+HXAA3l6wfEzKRDs6sH16yYICggCyJaOC2o1BaAjCJJQKCxyRu+GD4y8C3vEQZA1pORuiQm18XcBiGPFRJWpMvrUrxPb3z1KTQry3l8P9caChsy46e+5nYpKY7Fp5M7G9euEhXVHqQGx3snc47l0emhrY8x3bdJHZ5cJCLJh0/hRXVo0QoVH0anB+eODCFtuftTeNR6FxidHdTFtWG97Vwslw/nDbgOEFWMnwl3bztnNo7BDZFEjjRqgXv2OUqkA2UNpjgIcGS147enptY1jxUONHTWy8dUxh4x8UB+5ia0T3IdiQ4tvQmf7AEQBSKB/vgb300L2x90SEgoLu5tglrbEE3V2kA6K0kOWhXbUbfvs7F0BKvbrYYQNPfLwOAIQ2iNyk4z69LPz2b7PDvpInFBcjAOa9nqvy5GAWB3kpIcs+tltA+iAK0Chfv2bYUKLZ8A8SooAiEULqW4CdddC+wGydhL074i92a9dPABi8CQw2Jz0XzbpAaUhyM3awUnQviN2aZ4AQWnwswibb9auCbSDWg/BZrcnYkLGy/xPTaAChGZ2tf7LRiN1ENctvriwsCc21GLiTf9wBKEJadaV2Dio+u+gbkuyS+a6ORQXZo/BhsbP2OsS7hNrFQybzW8CdWx3cQ/0UbK9m0NCMWSEDU10QRA6NT652pzQCLUHaKvdfnvbeAc/P/SIYP4U4eLiFYCOHy5bhn6iErvqIC5ATn7meKBTLkc4EWge8cl+TSBtRjsAguOHdXwZcXYDxA8Rwjurz+gwguz/B/I4sms3g4nGSHXv3zOCS4sgS5wQB0FssnB6nz8yckUZmcE69sOmg3hoj8yMm2a0rxHCHpBwzFM8PLYD5Att5NTJ+M+M3BBkgQ0RGyAbmP2d9RBBB2W7usU7hLZugQ0Rpnh46iEL/XpbfUah3fFAYz0RhDb7V6gXPkgfCAqy0mXUxUQPmR+mNu4RbggeEV9WUwiiQ1PIFAc0DSDdqZEFv0LorqHOdsIJhYdvT/oLNDh1DxUurSuC4BHBjnETJmyHmQ2l/QpZpm4FKBndNXzQqmXwcxZkxCarSjrr75phr352W7ceRaPWKap1bxzHP3DnadhT3/ioEsH0Tr0a586Q9f3uZmdn18WTVSJR+vBmOKD7r3Zefnwe4saHZ/rZPH7YsMvnbxyDX5tTUy9cGG6EA/oM0s6dD688Pn3jQxNo1rCdOy8/vHL69Pvrx44Nx24kw4ENzvkbz5qWBpDWuX4dsmqHo7Q1G8G5DMyxC526WP4KXWmA4APY0W3NgkmT5mzYNMbc0oSg/0CLVQsmzZkze/bs4fPMe3c0wBXEZqYWJkYdf8+VaGRh3MfYwuSvyk+M5n3cXH7s6gAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>                                    
+                            </div>
+                            <div>Second-skin Skinny</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 4: Shoe Selection -->
+    <div id="screen4" class="screen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <h1>WALK THIS WAY</h1>
+                <p class="description">Pick your go-to shoes so we can get the leg opening right.</p>
+                    
+                <div style="text-align: left; margin-top: 30px;">
+                    <button class="btn" onclick="showScreen(5)">Next</button>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="right-sectioninnr">
+                    <div class="step-indicator"><strong>3</strong>/5</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                    <div class="subtitle">Select your pair of shoes</div>
+                    
+                    <div class="shoe-option">
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <div class="shoe-icon">
+                           <img src="img/pd1.jpg" alt="">
+                        </div>
+                        <span>Sneakers</span>
+                    </div>
+                    
+                    <div class="shoe-option">
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="shoe-icon">
+                            <img src="img/pd2.jpg" alt="">
+                        </div>
+                        <span>Heels</span>
+                    </div>
+                    
+                    <div class="shoe-option">
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="shoe-icon">
+                            <img src="img/pd3.jpg" alt="">
+                        </div>
+                        <span>Boots</span>
+                    </div>
+                    
+                    <div class="shoe-option">
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="shoe-icon">
+                            <img src="img/pd4.jpg" alt="">
+                        </div>
+                        <span>Sandals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 5: Stretch Type Selection -->
+    <div id="screen5" class="screen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <h1>NOW, THAT'S A STRETCH!</h1>
+                <p class="description">Go snug or go easy- your call.</p>
+            </div>
+            <div class="right-section">
+                <div class="right-sectioninnr">
+                    <div class="step-indicator"><strong>4</strong>/5</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                    <div class="subtitle">You pick!</div>
+                    <div class="card-container">
+                        <div class="card" onclick="showScreen(6)">
+                            <div class="cardimg">
+                                <img src="img/img.jpg" alt="Type 1">
+                            </div>
+                            <div class="card-light-label">Type 1</div>
+                        </div>
+                        <div class="card" onclick="showScreen(6)">
+                            <div class="cardimg">
+                                <img src="img/img-1.jpg" alt="Type 2">
+                            </div>
+                            <div class="card-light-label">Type 2</div>
+                        </div>
+                        <div class="card" onclick="showScreen(6)">
+                            <div class="cardimg">
+                                <img src="img/img-2.jpg" alt="Type 3">
+                            </div>
+                            <div class="card-light-label">Type 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 6: Style Mood Selection -->
+    <div id="screen6" class="screen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <h1>WHAT MOOD ARE YOUR JEANS IN?</h1>
+                <p class="description">Pick a mood- so the fit fits you.</p>
+                    
+                <div style="text-align: left; margin-top: 30px;">
+                    <button class="btn" onclick="showScreen(7)">Show My Results</button>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="right-sectioninnr">
+                    <div class="step-indicator"><strong>5</strong>/5</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                    <div class="subtitle">You pick!</div>
+                    
+                    <div class="mood-option">
+                        <svg class="heart-icon" width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.4465 48.5567C28.6532 48.8367 27.3465 48.8367 26.5532 48.5567C19.7865 46.2467 4.6665 36.6101 4.6665 20.2767C4.6665 13.0667 10.4765 7.2334 17.6398 7.2334C21.8865 7.2334 25.6432 9.28673 27.9998 12.4601C30.3565 9.28673 34.1365 7.2334 38.3598 7.2334C45.5232 7.2334 51.3332 13.0667 51.3332 20.2767C51.3332 36.6101 36.2132 46.2467 29.4465 48.5567Z" stroke="#4d4d4d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img src="img/pd2.jpg" alt="">
+                        <div class="mood-text">
+                            <div class="mood-title">VINTAGE LOVER</div>
+                            <div class="mood-desc">Lives for that old-school charm.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mood-option">
+                        <svg class="heart-icon" width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.4465 48.5567C28.6532 48.8367 27.3465 48.8367 26.5532 48.5567C19.7865 46.2467 4.6665 36.6101 4.6665 20.2767C4.6665 13.0667 10.4765 7.2334 17.6398 7.2334C21.8865 7.2334 25.6432 9.28673 27.9998 12.4601C30.3565 9.28673 34.1365 7.2334 38.3598 7.2334C45.5232 7.2334 51.3332 13.0667 51.3332 20.2767C51.3332 36.6101 36.2132 46.2467 29.4465 48.5567Z" stroke="#4D4D4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img src="img/pd1.jpg" alt="">
+                        <div class="mood-text">
+                            <div class="mood-title">CLASSIC COOL</div>
+                            <div class="mood-desc">Always goes for what's timeless.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mood-option">
+                        <svg class="heart-icon" width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.4465 48.5567C28.6532 48.8367 27.3465 48.8367 26.5532 48.5567C19.7865 46.2467 4.6665 36.6101 4.6665 20.2767C4.6665 13.0667 10.4765 7.2334 17.6398 7.2334C21.8865 7.2334 25.6432 9.28673 27.9998 12.4601C30.3565 9.28673 34.1365 7.2334 38.3598 7.2334C45.5232 7.2334 51.3332 13.0667 51.3332 20.2767C51.3332 36.6101 36.2132 46.2467 29.4465 48.5567Z" stroke="#4D4D4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img src="img/pd3.jpg" alt="">
+                        <div class="mood-text">
+                            <div class="mood-title">ALWAYS OFF-DUTY</div>
+                            <div class="mood-desc">Plays by her own rules, in style or life.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mood-option">
+                        <svg class="heart-icon" width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.4465 48.5567C28.6532 48.8367 27.3465 48.8367 26.5532 48.5567C19.7865 46.2467 4.6665 36.6101 4.6665 20.2767C4.6665 13.0667 10.4765 7.2334 17.6398 7.2334C21.8865 7.2334 25.6432 9.28673 27.9998 12.4601C30.3565 9.28673 34.1365 7.2334 38.3598 7.2334C45.5232 7.2334 51.3332 13.0667 51.3332 20.2767C51.3332 36.6101 36.2132 46.2467 29.4465 48.5567Z" stroke="#4D4D4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img src="img/pd4.jpg" alt="">
+                        <div class="mood-text">
+                            <div class="mood-title">SOFT GIRL</div>
+                            <div class="mood-desc">Less is always more.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mood-option">
+                        <svg class="heart-icon" width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.4465 48.5567C28.6532 48.8367 27.3465 48.8367 26.5532 48.5567C19.7865 46.2467 4.6665 36.6101 4.6665 20.2767C4.6665 13.0667 10.4765 7.2334 17.6398 7.2334C21.8865 7.2334 25.6432 9.28673 27.9998 12.4601C30.3565 9.28673 34.1365 7.2334 38.3598 7.2334C45.5232 7.2334 51.3332 13.0667 51.3332 20.2767C51.3332 36.6101 36.2132 46.2467 29.4465 48.5567Z" stroke="#4D4D4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img src="img/pd4.jpg" alt="">
+                        <div class="mood-text">
+                            <div class="mood-title">GRUNGE</div>
+                            <div class="mood-desc">Mysterious to the core.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 7: Results -->
+    <div id="screen7" class="screen">
+        <div class="containerrow">
+            <div class="left-section">
+                <img src="img/logo.svg" alt="Levi's Logo" class="logo">
+                <h1>MEET YOUR MATCH</h1>
+                <p class="description">Say hi to &lt;Fit Name&gt;. &lt;Descriptor&gt;</p>
+                
+                <div class="result-action resultgrp">                    
+                    <svg class="result-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.40018 6.32015L15.8902 3.49015C19.7002 2.22015 21.7702 4.30015 20.5102 8.11015L17.6802 16.6002C15.7802 22.3102 12.6602 22.3102 10.7602 16.6002L9.92018 14.0802L7.40018 13.2402C1.69018 11.3402 1.69018 8.23015 7.40018 6.32015Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.1099 13.6496L13.6899 10.0596" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>    
+                    <span>Love this! I want to show it to my friends</span>
+                </div>
+                
+                <div class="result-action">
+                    <svg class="result-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.8901 5.08039C14.0201 4.82039 13.0601 4.65039 12.0001 4.65039C7.21008 4.65039 3.33008 8.53039 3.33008 13.3204C3.33008 18.1204 7.21008 22.0004 12.0001 22.0004C16.7901 22.0004 20.6701 18.1204 20.6701 13.3304C20.6701 11.5504 20.1301 9.89039 19.2101 8.51039" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.1302 5.32L13.2402 2" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.1298 5.32031L12.7598 7.78031" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
+                    <span>This is so cool. Let's do it again</span>
+                </div>
+                
+                <div class="result-action">                    
+                    <svg class="result-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12H18" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 18V6" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>    
+                    <span>See more options</span>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="right-sectioninnr">
+                    <div class="card-container">
+                        <div class="product-card">
+                            <img src="img/img-1.jpg" alt="Women's Blue Wideleg">
+                            <div class="product-title">Women's Blue Wideleg Fit High Rise Jeans</div>
+                            <div class="product-desc">Structured waistband, medium stretch, sits just right for your favorite sneakers</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img src="img/img-2.jpg" alt="Women's 94 Blue Baggy">
+                            <div class="product-title">Women's 94 Blue Baggy Fit Mid Rise Jeans</div>
+                            <div class="product-desc">Structured waistband, medium stretch, sits just right for your favorite sneakers</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img src="img/img.jpg" alt="Women's Blue Loose">
+                            <div class="product-title">Women's Blue Loose Fit Low Rise Jeans</div>
+                            <div class="product-desc">Structured waistband, medium stretch, sits just right for your favorite sneakers</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Screen 7: END Results -->
+
+    <script>
+        function showScreen(screenNumber) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.style.display = 'none';
+            });
+            
+            // Show the selected screen
+            document.getElementById('screen' + screenNumber).style.display = 'block';
+        }
+    </script>
+    
+    <script>
+        const slider = document.getElementById('slider');
+        const track = document.querySelector('.slider-track');
+      
+        function updateTrack() {
+          const percentage = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+          track.style.background = `linear-gradient(to right, #d0021b ${percentage}%, #ccc ${percentage}%)`;
+        }
+      
+        slider.addEventListener('input', updateTrack);
+      
+        updateTrack(); // Initial update
+
+
+        function showScreen(screenNumber, imgSrc) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.style.display = 'none';
+            });
+            if (imgSrc) {
+                document.querySelector('#screen3 .fitimg').src = imgSrc;
+            }
+            document.getElementById('screen' + screenNumber).style.display = 'flex';
+        }
+
+        document.querySelectorAll('.mood-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.heart-icon').forEach(icon => {
+                    icon.classList.remove('heart-active');
+                });
+                
+                this.querySelector('.heart-icon').classList.add('heart-active');
+            });
+        });
+    </script>
+    
+</body>
+</html>
